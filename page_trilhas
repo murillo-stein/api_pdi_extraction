@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="csrf-token" data-name-key="csrf_name" data-name-value="csrf635ff9adba3ff" data-value-key="csrf_value"
+        data-value-value="cd5a68742a0535e66ecaf33a9ccba15d" content="" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description"
+        content="A Feedz é uma plataforma de engajamento de equipes que auxilia na redução de turnover e fornece aos líderes ferramentas para melhorar a cultura e o desempenho da empresa.">
+    <meta name="author" content="Feedz Tecnologia LTDA.">
+    <link href="/assets/images/simbolo_degrade.png" rel="shortcut icon" />
+    <title>Feedz | Engajamento de equipes </title>
+
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/assets/css/simple-sidebar.css" rel="stylesheet">
+    <link href="/assets/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="/assets/font-awesome/css/v4-shims.min.css" rel="stylesheet">
+    <link href="/assets/css/sweetalert.css" rel="stylesheet">
+    <link href="/assets/css/mention.css" rel="stylesheet">
+    <link href="/assets/css/closi.min.css?ts=1666975002" rel="stylesheet">
+    <link href="/assets/css/cropper.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="/assets/css/select2-4.0.6.min.css" rel="stylesheet">
+    <link href="/assets/emoji/css/jquery.atwho.css" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/1.1.34/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112876276-2"></script>
+    <script>
+        var host = window.location.hostname;
+        if (host != 'feedz.local' && host != 'localhost') {
+            console.log('loading ga');
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-112876276-2');
+            gtag('config', 'GA_TRACKING_ID', {
+                'user_id': '232683',
+                'company_id': '838'
+            });
+            gtag('set', { 'user_id': '232683' });
+        }
+    </script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        var host = window.location.hostname;
+        if (host != 'feedz.local' && host != 'localhost') {
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function () {
+                OneSignal.setExternalUserId("232683");
+
+                OneSignal.init({
+                    appId: "e8b519c2-16e2-445e-813c-cdca0fb491c7",
+                    autoRegister: true,
+                    notifyButton: {
+                        enable: false,
+                    },
+                    promptOptions: {
+                        actionMessage: "Fique sempre atualizado com o que acontece na Feedz",
+                        acceptButtonText: "Permitir",
+                        cancelButtonText: "Não, obrigado"
+                    }
+                });
+
+                OneSignal.getUserId(function (userId) {
+                    console.log("OneSignal User ID:", userId);
+
+                    if (userId) {
+                        OneSignal.push(["sendTag", "id", "232683"]);
+                        OneSignal.push(["sendTag", "name", "Murillo Stein"]);
+                        OneSignal.push(["sendTag", "role", "3"]);
+                        OneSignal.push(["sendTag", "company", "Bix Tecnologia"]);
+
+                        var data = { 'push': userId };
+                        $.post("/perfil/push", data);
+                    } else {
+
+                        OneSignal.registerForPushNotifications();
+
+                        OneSignal.push(["getNotificationPermission", function (permission) {
+                            console.log("Site Notification Permission:", permission);
+                        }]);
+                    }
+                });
+            });
+        }
+    </script>
+
+    <script src="https://fast.conpass.io/liDFajMgU9nw6.js"></script>
+
+</head>
+<style media="screen">
+    body {
+        background-image: url('/assets/images/degrade.png') !important;
+        background-size: cover !important;
+    }
+</style>
+
+<body id="body">
+    <input id="plataform_lang" value="Voando" type="hidden">
+    <header id="fdz-menu">
+        <nav class="fdz-menu-top navbar navbar-default">
+            <div class="container">
+                <div class="fdz-menu-top-box">
+                    <div id="fdz-menu-box-side-menu" class="visible-xs custom-scrollbar">
+                        <button type="button" class="fdz-side-menu-hamburger navbar-toggle collapsed"
+                            style="float: none;" onclick="openFdzSideMenu()">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div id="fdz-side-menu">
+                            <div class="fdz-side-menu-logo">
+                                <a href="#" class="navbar-brand">
+                                    <img
+                                        src="https://dng5i3agtdfqo.cloudfront.net/companies/838/logo/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjQ5NTY1LCJ0aW1lc3RhbXAiOjE2MDUwNDYwMTF9">
+                                </a>
+                                <a href="javascript:void(0)" class="closebtn" onclick="closeFdzSideMenu()">&times;</a>
+                            </div>
+                            <ul class="nav navbar-nav" style="margin-top: 2px;">
+                                <li class="fdz-menu-nav-inicio" id="fdz-main-menu-home">
+                                    <a href="/inicio">Início <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="fdz-menu-nav-celebracoes" id="fdz-main-menu-celebrations">
+                                    <a id="fdz-cmps-menu-celebration" href="/celebracoes">
+                                        Celebrações
+                                    </a>
+                                </li>
+                                <li class="dropdown fdz-menu-nav-feedbacks fdz-menu-nav-1on1 fdz-menu-nav-plano"
+                                    id="fdz-main-menu-development">
+                                    <a id="fdz-cmps-menu-development" href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">Desenvolvimento <span class="caret"></span>
+                                    </a>
+                                    <ul class="fdz-menu-dropdown dropdown-menu">
+                                        <li>
+                                            <a id="fdz-cmps-menu-development-send-feedback"
+                                                href="/feedbacks/novo">Enviar Feedback</a>
+                                        </li>
+                                        <li>
+                                            <a id="fdz-cmps-menu-development-feedback" href="/feedbacks">Feedbacks</a>
+                                        </li>
+                                        <li>
+                                            <a id="fdz-cmps-menu-development-plans"
+                                                href="/plano-de-desenvolvimento">Plano de Desenvolvimento (PDI)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/trilhas">
+                                                Planos de Desenvolvimento <span
+                                                    class="label label-primary">Novidade!</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a id="fdz-cmps-menu-development-1on1-meetings" href="/1on1">Reuniões
+                                                1:1</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="fdz-menu-nav-okr" id="fdz-main-menu-objectives">
+                                    <a id="fdz-cmps-menu-okr" href="/objetivos">Objetivos</a>
+                                </li>
+                                <li class="dropdown fdz-menu-nav-engajamento" id="fdz-main-menu-engagement">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        Gamificação <span class="caret"></span>
+                                    </a>
+                                    <ul class="fdz-menu-dropdown dropdown-menu">
+                                        <li>
+                                            <a href="/engajamento">Ranking</a>
+                                        </li>
+                                        <li>
+                                            <a href="/engajamento/vencedores">Histórico</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown fdz-menu-nav-desempenho" id="fdz-main-menu-appraisal">
+                                    <a id="fdz-cmps-menu-perfomance" href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">Desempenho <span class="caret"></span></a>
+                                    <ul class="fdz-menu-dropdown dropdown-menu">
+                                        <li>
+                                            <a href="/avaliacao-desempenho/lista">Minhas avaliações</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="fdz-side-menu-overlay" onclick="closeFdzSideMenu()"></div>
+                        <script>
+                            function openFdzSideMenu() {
+                                document.getElementById("fdz-side-menu").style.width = "250px";
+                                document.getElementById("fdz-side-menu-overlay").style.width = "100%";
+                            }
+
+                            function closeFdzSideMenu() {
+                                document.getElementById("fdz-side-menu").style.width = "0";
+                                document.getElementById("fdz-side-menu-overlay").style.width = "0px";
+                            }
+                        </script>
+                    </div>
+                    <div id="fdz-menu-box-logo" class="hidden-xs">
+                        <a class="navbar-brand" href="/inicio">
+                            <img
+                                src="https://dng5i3agtdfqo.cloudfront.net/companies/838/logo/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjQ5NTY1LCJ0aW1lc3RhbXAiOjE2MDUwNDYwMTF9">
+                        </a>
+                    </div>
+                    <div id="fdz-menu-box-shortcuts">
+                        <ul class="fdz-menu-options" id="fdz-main-menu-noticeboard">
+                            <li>
+                                <a target="_blank" href="https://ajuda.feedz.com.br/" title="Ajuda"
+                                    style="width: 42px;">
+                                    <i class="fa fa-circle-question menu-icon" style="font-size: 16px;color: #777;"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/comunicados" title="Comunicados" style="width: 42px;">
+                                    <i class="fa fa-bullhorn menu-icon" style="font-size: 16px;"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/ouvidoria" title="Ouvidoria" style="width: 42px;"><i
+                                        class="fa fa-comments-o menu-icon"></i></a>
+                            </li>
+                            <li class="dropdown fdz-menu-notifications" id="fdz-main-menu-notifications">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false" style="width: 42px;">
+                                    <i class="fa fa-bell"></i>
+                                    <span class="badge">1</span>
+                                </a>
+                                <ul class="dropdown-menu "
+                                    style="position: absolute;background: #fff;border: 1px solid #c3c3c3;left: -200px;">
+                                    <li style="width: 100%">
+                                        <div class="header border-bottom">
+                                            <span>Notificações</span>
+                                            <span class="mark-as-read">Marcar como lidas</span>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/316423084"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img
+                                                        src="https://static.feedz.com.br/companies/838/profiles/87908/avatar/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjg3OTA4LCJ0aW1lc3RhbXAiOjE2MTc2NTU0ODV9">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Lucas Vasconcelos Rocha&nbsp;</span>
+                                                        criou um novo plano de desenvolvimento!
+                                                        <span class="custom-message" title="PDI Murillo - 4º tri 22">PDI
+                                                            Murillo - 4º tri 22</span>
+                                                    </div>
+                                                    <div class="date" title="31/10/2022">
+                                                        3 horas atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification  new ">
+                                            <a target="_self" href="/notification/redirect/316303254"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="31/10/2022">
+                                                        4 horas atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/315914779"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="30/10/2022">
+                                                        17 horas atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/315591940"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="29/10/2022">
+                                                        1 dia atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/314324907"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="28/10/2022">
+                                                        3 dias atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/312905625"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="27/10/2022">
+                                                        4 dias atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/312407523"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="26/10/2022">
+                                                        4 dias atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/310666993"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="25/10/2022">
+                                                        6 dias atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/310592214"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/user.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Ana Cunha&nbsp;</span>
+                                                        celebrou com você!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="25/10/2022">
+                                                        6 dias atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/310081206"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img
+                                                        src="https://static.feedz.com.br/companies/838/profiles/87908/avatar/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjg3OTA4LCJ0aW1lc3RhbXAiOjE2MTc2NTU0ODV9">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Lucas Vasconcelos Rocha&nbsp;</span>
+                                                        agendou um 1:1 com você
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="24/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/310024998"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="24/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/309910165"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/user.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Ana Cunha&nbsp;</span>
+                                                        celebrou com você!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="24/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/307763502"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="21/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/306737491"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/user.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Ana Cunha&nbsp;</span>
+                                                        celebrou com você!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="20/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/306634291"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/user.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Ana Cunha&nbsp;</span>
+                                                        celebrou com você!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="20/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/306617140"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="20/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/306393013"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="19/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/304877524"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="18/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class=" border-bottom ">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/304758604"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/user.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate">Ana Cunha&nbsp;</span>
+                                                        celebrou com você!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="18/10/2022">
+                                                        1 semana atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="">
+                                        <div class="notification ">
+                                            <a target="_self" href="/notification/redirect/303858658"
+                                                style="color: #1d2129;">
+                                                <div class="image" style="display: inline-block; margin-right: 8px;">
+                                                    <img src="/assets/images/feedzbot.png">
+                                                </div>
+                                                <div class="message" style="display: inline-block;width: 220px;">
+                                                    <div class="content">
+                                                        <span class="from notxlate"></span>
+                                                        Você ganhou moedas pelo seu acesso de hoje!
+                                                        <span class="custom-message" title=""></span>
+                                                    </div>
+                                                    <div class="date" title="17/10/2022">
+                                                        2 semanas atrás</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="fdz-menu-box-profile-menu" class="dropdown">
+                        <button class="btn btn-default dropdown-toggle fdz-menu-profile-info" id="dropdownMenuMobile"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <img class="avatar-30 rounded"
+                                src="https://static.feedz.com.br/companies/838/profiles/232683/avatar/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjIzMjY4MywidGltZXN0YW1wIjoxNjQwNjk3Nzc5fQ==">
+                            <div class="hidden-xs">
+                                <span>Murillo</span>
+                                <span class="company">Bix</span>
+                            </div>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="fdz-menu-info-dropdown dropdown-menu pull-right"
+                            aria-labelledby="dropdownMenuMobile">
+                            <li>
+                                <a href="/perfil"><i class="fa fa-user menu-icon"></i>Meu perfil</a>
+                            </li>
+                            <li>
+                                <a href="/organograma"><i class="fa fa-cubes menu-icon"></i> Organograma </a>
+                            </li>
+                            <li>
+                                <a href="/colaboradores"><i class="fa fa-users menu-icon"></i>Colaboradores</a>
+                            </li>
+                            <li>
+                                <a href="/comunicados"><i class="fa fa-bullhorn menu-icon"></i>Comunicados</a>
+                            </li>
+                            <li>
+                                <a id="fdz-cmps-menu-profile-ombudsman" href="/ouvidoria"><i
+                                        class="fa fa-comments-o menu-icon"></i>Ouvidoria</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="/autenticacao/logout" onclick="signOut();">
+                                    <i class="fa fa-sign-out menu-icon"></i>Sair </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="hidden-xs navbar navbar-inverse fdz-menu-lighten">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" style="margin-top: 2px;">
+                        <li class="fdz-menu-nav-inicio" id="fdz-main-menu-home">
+                            <a href="/inicio">Início <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="fdz-menu-nav-celebracoes" id="fdz-main-menu-celebrations">
+                            <a id="fdz-cmps-menu-celebration" href="/celebracoes">
+                                Celebrações
+                            </a>
+                        </li>
+                        <li class="dropdown fdz-menu-nav-feedbacks fdz-menu-nav-1on1 fdz-menu-nav-plano"
+                            id="fdz-main-menu-development">
+                            <a id="fdz-cmps-menu-development" href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                role="button" aria-haspopup="true" aria-expanded="false">Desenvolvimento <span
+                                    class="caret"></span>
+                            </a>
+                            <ul class="fdz-menu-dropdown dropdown-menu">
+                                <li>
+                                    <a id="fdz-cmps-menu-development-send-feedback" href="/feedbacks/novo">Enviar
+                                        Feedback</a>
+                                </li>
+                                <li>
+                                    <a id="fdz-cmps-menu-development-feedback" href="/feedbacks">Feedbacks</a>
+                                </li>
+                                <li>
+                                    <a id="fdz-cmps-menu-development-plans" href="/plano-de-desenvolvimento">Plano de
+                                        Desenvolvimento (PDI)</a>
+                                </li>
+                                <li>
+                                    <a href="/trilhas">
+                                        Planos de Desenvolvimento <span class="label label-primary">Novidade!</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="fdz-cmps-menu-development-1on1-meetings" href="/1on1">Reuniões 1:1</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fdz-menu-nav-okr" id="fdz-main-menu-objectives">
+                            <a id="fdz-cmps-menu-okr" href="/objetivos">Objetivos</a>
+                        </li>
+                        <li class="dropdown fdz-menu-nav-engajamento" id="fdz-main-menu-engagement">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">
+                                Gamificação <span class="caret"></span>
+                            </a>
+                            <ul class="fdz-menu-dropdown dropdown-menu">
+                                <li>
+                                    <a href="/engajamento">Ranking</a>
+                                </li>
+                                <li>
+                                    <a href="/engajamento/vencedores">Histórico</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown fdz-menu-nav-desempenho" id="fdz-main-menu-appraisal">
+                            <a id="fdz-cmps-menu-perfomance" href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                role="button" aria-haspopup="true" aria-expanded="false">Desempenho <span
+                                    class="caret"></span></a>
+                            <ul class="fdz-menu-dropdown dropdown-menu">
+                                <li>
+                                    <a href="/avaliacao-desempenho/lista">Minhas avaliações</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="fdz-main">
+        <div class="container">
+            <div class="trails">
+                <div class="fdz-trails-card">
+                    <h1 class="fdz-title">
+                        Meu Desenvolvimento </h1>
+                </div>
+                <div class="fdz-trails-card list-main-frame">
+                    <div class="fdz-flex-column">
+                        <div class="fdz-flex-row fdz-w-100-percent fdz-flex-justify-between fdz-trails-btns">
+                            <div class="fdz-flex-row">
+                                <div id="menu_trail_status_active"
+                                    class="fdz-trails-card-list-menu active fdz-m-right-8">
+                                    <h4 class="fdz-title">Ativos</h4>
+                                </div>
+                                <div id="menu_trail_status_completed" class="fdz-trails-card-list-menu">
+                                    <h4 class="fdz-title">Finalizados</h4>
+                                </div>
+                                <div id="menu_trail_status_expired" class="fdz-trails-card-list-menu">
+                                    <h4 class="fdz-title">Expirados</h4>
+                                </div>
+                            </div>
+                            <button id="create_new_btn" class="fdz-btn rounded fdz-btn-primary">
+                                <img src="/assets/images/trails/trails_create.svg" />&nbsp;Criar um plano </button>
+                        </div>
+                        <div class="fdz-trails-list fdz-m-top-20">
+                            <div id="main_content" class="trails-list fdz-m-right-16">
+                                <div id="opened_trail">
+                                </div>
+                                <div id="trails_list">
+                                    <ul>
+                                        <li data-id="50676" data-status="completed" data-progress="100" data-type="2"
+                                            data-employee="232683"
+                                            class="trail-row fdz-flex-row fdz-w-100-percent employee-row">
+                                            <div class="people-card">
+                                                <img class="profile-photo employee" src="" />
+                                                <div class="fdz-flex-column employee-info employee-list">
+                                                    <div
+                                                        class="fdz-title fdz-m-bottom-4 fdz-card-label-title  fdz-flex-row fdz-flex-justify-between">
+                                                        <h5>
+                                                            Onboarding de Murillo Stein
+                                                        </h5>
+                                                        <div style="margin-top: auto;">
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounded-4p">Onboarding</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-flex-row fdz-m-top-0 fdz-m-bottom-4">
+                                                        <div class="fdz-flex-row bottom-info manager">
+                                                            <p class="fdz-paragraph fdz-m-right-16">
+                                                                Iniciou 22/12/2021
+                                                            </p>
+                                                        </div>
+                                                        <div class="fdz-flex-row bottom-info trail-info">
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-m-top-0 fdz-progress-bar-wrapper">
+                                                        <div class="fdz-progress-bar">
+                                                            <div class="fdz-progress good" style="width: 100%;"></div>
+                                                        </div>
+                                                        <div class="fdz-progress-bar-info">
+                                                            <p class="fdz-paragraph good bold">
+                                                                100%
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                <b class="good">
+                                                                    6
+                                                                </b>&nbsp;
+                                                                de 6 tarefas
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-id="275839" data-status="completed" data-progress="100" data-type="1"
+                                            data-employee="232683"
+                                            class="trail-row fdz-flex-row fdz-w-100-percent employee-row">
+                                            <div class="people-card">
+                                                <img class="profile-photo employee" src="" />
+                                                <div class="fdz-flex-column employee-info employee-list">
+                                                    <div
+                                                        class="fdz-title fdz-m-bottom-4 fdz-card-label-title  fdz-flex-row fdz-flex-justify-between">
+                                                        <h5>
+                                                            PDI Murillo - 3º tri 22
+                                                        </h5>
+                                                        <div style="margin-top: auto;">
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounde class="
+                                                                style="margin-top: auto;" "d-4p">Comunicação</span>
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounded-4p">Individual</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-flex-row fdz-m-top-0 fdz-m-bottom-4">
+                                                        <div class="fdz-flex-row bottom-info manager">
+                                                            <p class="fdz-paragraph fdz-m-right-16">
+                                                                Iniciou 01/07/2022
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                Previsto 01/10/2022
+                                                            </p>
+                                                        </div>
+                                                        <div class="fdz-flex-row bottom-info trail-info">
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-m-top-0 fdz-progress-bar-wrapper">
+                                                        <div class="fdz-progress-bar">
+                                                            <div class="fdz-progress good" style="width: 100%;"></div>
+                                                        </div>
+                                                        <div class="fdz-progress-bar-info">
+                                                            <p class="fdz-paragraph good bold">
+                                                                100%
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                <b class="good">
+                                                                    3
+                                                                </b>&nbsp;
+                                                                de 3 tarefas
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-id="275872" data-status="completed" data-progress="100" data-type="3"
+                                            data-employee="232683"
+                                            class="trail-row fdz-flex-row fdz-w-100-percent employee-row">
+                                            <div class="people-card">
+                                                <img class="profile-photo employee" src="" />
+                                                <div class="fdz-flex-column employee-info employee-list">
+                                                    <div
+                                                        class="fdz-title fdz-m-bottom-4 fdz-card-label-title  fdz-flex-row fdz-flex-justify-between">
+                                                        <h5>
+                                                            Murillo Stein
+                                                        </h5>
+                                                        <div style="margin-top: auto;">
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounded-4p">Liderança</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-flex-row fdz-m-top-0 fdz-m-bottom-4">
+                                                        <div class="fdz-flex-row bottom-info manager">
+                                                            <p class="fdz-paragraph fdz-m-right-16">
+                                                                Iniciou 01/07/2022
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                Previsto 01/10/2022
+                                                            </p>
+                                                        </div>
+                                                        <div class="fdz-flex-row bottom-info trail-info">
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-m-top-0 fdz-progress-bar-wrapper">
+                                                        <div class="fdz-progress-bar">
+                                                            <div class="fdz-progress good" style="width: 100%;"></div>
+                                                        </div>
+                                                        <div class="fdz-progress-bar-info">
+                                                            <p class="fdz-paragraph good bold">
+                                                                100%
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                <b class="good">
+                                                                    9
+                                                                </b>&nbsp;
+                                                                de 9 tarefas
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-id="422493" data-status="10" data-progress="10" data-type="1"
+                                            data-employee="232683"
+                                            class="trail-row fdz-flex-row fdz-w-100-percent employee-row">
+                                            <div class="people-card">
+                                                <img class="profile-photo employee" src="" />
+                                                <div class="fdz-flex-column employee-info employee-list">
+                                                    <div
+                                                        class="fdz-title fdz-m-bottom-4 fdz-card-label-title  fdz-flex-row fdz-flex-justify-between">
+                                                        <h5>
+                                                            teste
+                                                        </h5>
+                                                        <div style="margin-top: auto;">
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounde class="
+                                                                style="margin-top: auto;" "d-4p">Gestão</span>
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounded-4p">Individual</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-flex-row fdz-m-top-0 fdz-m-bottom-4">
+                                                        <div class="fdz-flex-row bottom-info manager">
+                                                            <p class="fdz-paragraph fdz-m-right-16">
+                                                                Iniciou 29/10/2022
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                Previsto 09/11/2022
+                                                            </p>
+                                                        </div>
+                                                        <div class="fdz-flex-row bottom-info trail-info">
+                                                            <p class="fdz-paragraph fdz-m-0 fdz-m-right-4">
+                                                                <span>
+                                                                    <label class="fdz-card-label-deadline"> Faltam 9
+                                                                        dias</label>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-m-top-0 fdz-progress-bar-wrapper">
+                                                        <div class="fdz-progress-bar">
+                                                            <div class="fdz-progress danger" style="width: 10%;"></div>
+                                                        </div>
+                                                        <div class="fdz-progress-bar-info">
+                                                            <p class="fdz-paragraph danger bold">
+                                                                10%
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                <b class="danger">
+                                                                    0
+                                                                </b>&nbsp;
+                                                                de 1 tarefas
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-id="422710" data-status="0" data-progress="0" data-type="1"
+                                            data-employee="232683"
+                                            class="trail-row fdz-flex-row fdz-w-100-percent employee-row">
+                                            <div class="people-card">
+                                                <img class="profile-photo employee" src="" />
+                                                <div class="fdz-flex-column employee-info employee-list">
+                                                    <div
+                                                        class="fdz-title fdz-m-bottom-4 fdz-card-label-title  fdz-flex-row fdz-flex-justify-between">
+                                                        <h5>
+                                                            PDI Murillo - 4º tri 22
+                                                        </h5>
+                                                        <div style="margin-top: auto;">
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounde class="
+                                                                style="margin-top: auto;" "d-4p">Habilidades
+                                                                Técnicas</span>
+                                                            <span
+                                                                class="label score-tag-label primary fdz-rounded-4p">Individual</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-flex-row fdz-m-top-0 fdz-m-bottom-4">
+                                                        <div class="fdz-flex-row bottom-info manager">
+                                                            <p class="fdz-paragraph fdz-m-right-16">
+                                                                Iniciou 01/10/2022
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                Previsto 01/01/2023
+                                                            </p>
+                                                        </div>
+                                                        <div class="fdz-flex-row bottom-info trail-info">
+                                                            <p class="fdz-paragraph fdz-m-0 fdz-m-right-4">
+                                                                <span>
+                                                                    <label class="fdz-card-label-deadline"> Faltam 62
+                                                                        dias</label>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fdz-m-top-0 fdz-progress-bar-wrapper">
+                                                        <div class="fdz-progress-bar">
+                                                            <div class="fdz-progress danger" style="width: 0%;"></div>
+                                                        </div>
+                                                        <div class="fdz-progress-bar-info">
+                                                            <p class="fdz-paragraph danger bold">
+                                                                0%
+                                                            </p>
+                                                            <p class="fdz-paragraph">
+                                                                <b class="danger">
+                                                                    0
+                                                                </b>&nbsp;
+                                                                de 3 tarefas
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="right_menu" class="fdz-card-box-content-right my-team">
+                                <div id="my_team" class="fdz-flex-column fdz-w-100-percent">
+                                    <div class="fdz-m-bottom-12">
+                                        <h2 class="fdz-title">
+                                            Minha equipe </h4>
+                                            <p class="fdz-paragraph">
+                                                Essa é a sua equipe </p>
+                                    </div>
+                                    <div class="manager fdz-m-bottom-12">
+                                        <h4 class="fdz-title fdz-m-0">
+                                            Líder </h4>
+                                        <div class="fdz-my-team-profile fdz-m-bottom-4 fdz-m-top-4">
+                                            <img class="profile-photo"
+                                                src="https://static.feedz.com.br/companies/838/profiles/87908/avatar/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjg3OTA4LCJ0aW1lc3RhbXAiOjE2MTc2NTU0ODV9" />
+                                            <div class="profile-content">
+                                                <div class="fdz-flex-column">
+                                                    <h5 class="fdz-title fdz-m-0">
+                                                        Lucas Rocha
+                                                    </h5>
+                                                    <p class="fdz-paragraph fdz-m-0">
+                                                        Consultor De Data Science
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <button data-employee="87908"
+                                                        class="fdz-btn rounded light see-profile"><img
+                                                            class="fdz-btn-icon"
+                                                            src="/assets/images/trails/view_eye.svg" /></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="team">
+                                        <h4 class="fdz-title fdz-m-0">
+                                            Equipe </h4>
+                                        <div class="custom-scrollbar">
+                                            <div class="fdz-my-team-profile fdz-m-bottom-4 fdz-m-top-4">
+                                                <img class="profile-photo"
+                                                    src="https://static.feedz.com.br/companies/838/profiles/232683/avatar/eyJpZF9jb21wYW55Ijo4MzgsImlkX3Byb2ZpbGUiOjIzMjY4MywidGltZXN0YW1wIjoxNjQwNjk3Nzc5fQ==" />
+                                                <div class="profile-content">
+                                                    <div class="fdz-flex-column">
+                                                        <h5 class="fdz-title fdz-m-0">
+                                                            Murillo Stein
+                                                        </h5>
+                                                        <p class="fdz-paragraph fdz-m-0">
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <button data-employee="232683"
+                                                            class="fdz-btn rounded light see-profile"><img
+                                                                class="fdz-btn-icon"
+                                                                src="/assets/images/trails/view_eye.svg" /></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="okr" class="fdz-flex-column fdz-w-100-percent fdz-m-top-12">
+                                    <h2 class="fdz-title fdz-m-0">
+                                        Mapa de objetivos
+                                    </h2>
+                                    <p class="fdz-paragraph fdz-m-0">
+                                        Descubra os objetivos de sua equipe que ainda estão vigentes e os concluídos no
+                                        útimo período </p>
+
+                                    <a class="fdz-btn rounded fdz-m-top-8 fdz-flex-justify-center"
+                                        href="/objetivos?department=34947" target="_blank">
+                                        Ver todos os objetivos </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fdz-notice-board-modal modal fade" id="notice-board-modal" data-keyboard="false">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header fdz-flex-justify-between">
+                            <h5 class="modal-title text-center fdz-align-center fdz-w-100-percent">
+                                <img src="/assets/images/notice-board.png">Novo Módulo de Planos de Desenvolvimento
+                                <button type="button" id="closeUserPlan" class="close fdz-flex-justify-flex-end"
+                                    data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="custom-scrollbar" style="height: 100%;">
+                                <div class="col-sm-12 fdz-notice-board-message-container">
+                                    <article id="notice-message" class="fdz-notice-board-message-content">
+                                        <iframe width="100%" height="100%"
+                                            src="https://www.youtube.com/embed/A4rU30HhHY0" title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-sm-12">
+                                <button type="button" class="fdz-btn" id="btn-notice-board-dismiss"
+                                    data-dismiss="modal">Não exibir novamente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modals" class="trails-modals"></div>
+        </div>
+    </main>
+    <script src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/jquery.mask.min.js"></script>
+    <script src="/assets/js/jquery-block-ui.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+    <script src="/assets/js/sweetalert.min.js"></script>
+    <script src="/assets/js/mention.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script src="/assets/Datatable/datatables.min.js"></script>
+    <script>
+        $.extend($.fn.dataTable.defaults, {
+            language: {
+                "url": "/assets/translate/datatable/pt_BR.json"
+            }
+        });
+
+        $(document).ready(function () {
+            $("body").on("click", ".start-import", function (e) {
+                e.preventDefault();
+            });
+
+            function initSideMenuEvent() {
+                let extraSmallDeviscesWidth = 768;
+
+                function callback() {
+                    let fdzMain = $("#fdz-main");
+                    let windowWidth = $(window).width();
+
+                    fdzMain.removeClass('fdz-main-side-menu');
+                    if (windowWidth <= extraSmallDeviscesWidth) {
+                        fdzMain.addClass('fdz-main-side-menu');
+                    }
+                }
+
+                // initialize side menu if appropriate
+                callback();
+
+                $(window).resize(callback);
+            }
+
+            setTimeout(function () {
+                $('[data-toggle="popover"]').each(function (e, elem) {
+                    let _this = this;
+                    let trigger = $(_this).attr('data-trigger');
+                    let popover = $(_this).popover({
+                        boundary: 'window',
+                        container: 'body',
+                        html: true,
+                        title: $(this).data('popover-title'),
+                        content: $(this).data('popover-content'),
+                        trigger: trigger,
+                        animation: false
+                    });
+
+                    if (trigger == 'click') {
+                        popover.on("show.bs.popover", function (e) {
+                            $("[rel=popover]").not(e.target).popover("destroy");
+                            $(".popover").remove();
+                        });
+                    }
+
+                    if (trigger == 'hover') {
+                        popover.on("mouseenter", function () {
+                            $(_this).popover("show");
+
+                            $(_this).siblings('[data-toggle="popover"]').each(function () {
+                                $(this).popover("hide");
+                            });
+                        }).parent().on("mouseleave", function () {
+                            $(_this).popover("hide");
+                        });
+                    }
+                });
+            }, 500)
+
+            function initMenuHoverLogic() {
+                var path = window.location.pathname;
+
+                if (path == '/plano-de-desenvolvimento/dashboard' || path == '/feedbacks/historico' || path == '/feedbacks/gestao' || path == '/gestao/1on1') {
+                    result = path.replace(/\//g, '-');
+                    //console.log(result)
+                    $('#fdz-menu .navbar-inverse .fdz-menu-active-item').removeClass('fdz-menu-active-item');
+                    $('#fdz-menu .fdz-menu-nav' + result).addClass('fdz-menu-active-item');
+                    return;
+                }
+
+                var regex = /(\/\w+)/i;
+                var result = path.match(regex);
+                result = result[0].replace('/', '');
+
+                $('#fdz-menu .navbar-inverse .fdz-menu-active-item').removeClass('fdz-menu-active-item');
+                $('#fdz-menu .fdz-menu-nav-' + result).addClass('fdz-menu-active-item');
+            }
+
+            function initBookmarkDelete() {
+                $(".bookmark-delete").on("click", function () {
+                    var bookmarkId = $(this).attr('data-id');
+
+                    swal({
+                        title: "Você tem certeza?",
+                        text: "Este favorito não poderá ser recuperado",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Sim",
+                        cancelButtonText: "Cancelar",
+                        closeOnConfirm: false,
+                        closeOnCancel: true
+                    }, function (isConfirm) {
+                        if (!isConfirm) {
+                            return;
+                        }
+
+                        $.ajax({
+                            type: 'DELETE',
+                            url: `/api/objetivos/favoritos/${bookmarkId}`,
+                            success: function (data) {
+                                swal("Excluido!", "Favorito deletado com sucesso", "success");
+                                location.reload();
+                            },
+                            error: function (data) {
+                                swal("Oops!", "Não é possível deletar o favorito", "error");
+                            }
+                        });
+                    });
+                });
+            }
+
+            function initBookmarkGlobalDelete() {
+                $(".bookmarkGlobal-delete").on("click", function () {
+                    var bookmarkId = $(this).attr('data-id');
+
+                    swal({
+                        title: "Você tem certeza?",
+                        text: "Se você excluir esse filtro, todos os colaboradores perderão acesso ao filtro. Deseja excluir mesmo assim?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Sim",
+                        cancelButtonText: "Cancelar",
+                        closeOnConfirm: false,
+                        closeOnCancel: true
+                    }, function (isConfirm) {
+                        if (!isConfirm) {
+                            return;
+                        }
+
+                        $.ajax({
+                            type: 'DELETE',
+                            url: `/api/objetivos/favoritos/${bookmarkId}`,
+                            success: function (data) {
+                                swal("Excluido!", "Favorito deletado com sucesso", "success");
+                                location.reload();
+                            },
+                            error: function (data) {
+                                swal("Oops!", "Não é possível deletar o favorito", "error");
+                            }
+                        });
+                    });
+                });
+            }
+
+            function initNotificationMarkAsRead() {
+                $(".mark-as-read").on("click", function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/notification/marcar-como-lidas',
+                        success: function (data) {
+                            location.reload();
+                        },
+                        error: function (data) {
+                            swal("Oops!", "Falha ao limpar notificações", "error");
+                        }
+                    });
+                });
+            }
+
+            initSideMenuEvent();
+            initMenuHoverLogic();
+            initBookmarkDelete();
+            initBookmarkGlobalDelete();
+            initNotificationMarkAsRead();
+        });
+
+        $(document).on('click', "#id-activate-support", function () {
+            swal({
+                title: "Liberar suporte",
+                text: "Ao ativar o suporte, o time de Sucesso do Cliente da Feedz terá acesso aos dados da empresa por 48h." +
+                    "Você deseja ativar o suporte?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Sim, liberar suporte",
+                cancelButtonText: "Cancelar",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            }, function (isConfirm) {
+                $.blockUI();
+                if (isConfirm) {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/empresa/liberar-suporte',
+                        success: function (data) {
+                            $.unblockUI();
+                            if (data.success == true) {
+                                swal("Sucesso!", "Suporte ativado com sucesso!", "success");
+                            } else {
+                                swal("Oops", data.message, "error");
+                            }
+                        },
+                        error: function (data) {
+                            $.unblockUI();
+                            swal("Oops!", "Ocorreu um erro. Por favor tente novamente", "error");
+                        }
+                    });
+                } else {
+                    $.unblockUI();
+                }
+            });
+        });
+
+        $(document).on("click", function (event) {
+            let $trigger = $(".fdz-dropdown");
+            let isModalButton = $(event.target).hasClass('fdz-dropdown-btn') || $(event.target).parents('.fdz-dropdown-btn').hasClass('fdz-dropdown-btn')
+
+            if ((!isModalButton && $trigger.length) && ($trigger !== event.target && !$trigger.has(event.target).length)) {
+                $(".fdz-dropdown").trigger('remove').remove()
+            }
+        });
+
+    </script>
+    <script src="/assets/js/select2-4.0.6.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"></script>
+    <script src="/assets/js/moment.js"></script>
+    <link href="/assets/css/summernote-0.8.18.css" rel="stylesheet">
+    <script src="/assets/js/summernote-0.8.18.js"></script>
+    <script src="/assets/js/summernote/lang/summernote-pt-BR.js"></script>
+    <script>
+        const openedTrail = document.getElementById("opened_trail");
+        const rightContent = document.getElementById("right_menu");
+        const mainContent = document.getElementById("main_content");
+        const createBtn = document.getElementById("create_new_btn");
+        openedTrail.style.display = "none";
+
+        let trail = null;
+        if (createBtn != null) {
+            createBtn.addEventListener('click', () => {
+                window.location.href = "/trilhas/232683/trilha/0/editar/1";
+            })
+        }
+
+        function closeModals() {
+            $('.fdz-new-modal').fadeOut(500);
+            $('#modals').html('');
+            $(".modal-backdrop.in").remove();
+
+            const body = $("body");
+
+            if (body.hasClass("modal-open")) {
+                body.removeClass("modal-open");
+            }
+        }
+
+        function getAllRows() {
+            return $('.trail-row');
+        }
+
+        function getRows(completed, expired) {
+            const $rows = $(`.trail-row`).filter(function () {
+                if (expired) {
+                    return ($(this).data('type') == "1" && $(this).data('status') == "expired");
+                }
+                if (completed) {
+                    return $(this).data('status') == "completed";
+                }
+                return ($(this).data('status') != "completed" && ($(this).data('type') == "2" || $(this).data('type') == "3")) || ($(this).data('type') == "1" && $(this).data('status') != "expired" && $(this).data('status') != "completed");
+            });
+
+            let label = "";
+            if (completed) {
+                label = "finalizado";
+            } else {
+                label = "ativo";
+            }
+
+            if ($rows.length == 0) {
+                if ($('.fdz-empty-content').length == 0) {
+                    $('#main_content').append(`<div class="fdz-empty-content larger"><img class="fdz-empty-content-img" src="/assets/images/trails/empty_state_list.png"/><p class="fdz-empty-content-label larger"><b>Nenhum</b> plano ${label} ativo no momento</p></div>`);
+                } else {
+                    $('.fdz-empty-content').remove();
+                    $('#main_content').append(`<div class="fdz-empty-content larger"><img class="fdz-empty-content-img" src="/assets/images/trails/empty_state_list.png"/><p class="fdz-empty-content-label larger"><b>Nenhum</b> plano ${label} ativo no momento</p></div>`);
+                }
+            }
+            else if ($rows.length == 1) {
+                let trailId = Number(localStorage.getItem('taskOpened-trailId'));
+                $('.fdz-empty-content').remove();
+                if (trailId == 0) {
+                    let id = Number($($rows[0]).data('id'));
+                    trail = new Trail(id);
+                }
+            } else {
+                $('.fdz-empty-content').remove();
+            }
+            return $rows;
+        }
+
+        function loadTask() {
+            let trailId = Number(localStorage.getItem('taskOpened-trailId'));
+            if (trailId != 0) {
+                let progress = Number($(`li[data-id=${trailId}]`).data('progress'));
+                if (progress < 100) {
+                    trail = new Trail(trailId);
+                }
+            }
+        }
+
+        function stopVideo() {
+            let iframes = $('iframe');
+            let videos = $('video');
+            if (iframes) {
+                iframes.each(function (index, iframe) {
+                    $(iframe).attr('allow', 'accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                    $(iframe).attr('src', $(iframe).attr('src'));
+                });
+            }
+            if (videos) {
+                videos.each(function (index, video) {
+                    $(video).attr('autoplay', false);
+                    $(video).pause();
+                });
+            }
+        };
+
+        $(document).on('click', '.note-btn.btn.btn-default.btn-sm', () => {
+            $(".modal-backdrop.in").remove();
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            let completed = false;
+            const closeModal = $('.fdz-modal-close');
+            const activeTrails = $('#active-trails');
+            const completedTrails = $('#completed-trails');
+            const expiredTrails = $('#expired-trails');
+
+            if (localStorage.getItem('modalUserOboarding') == null) {
+                let modalUserOboarding = $("#notice-board-modal");
+                modalUserOboarding.modal('show');
+            }
+
+            $('#btn-notice-board-dismiss').on('click', function () {
+                localStorage.setItem('modalUserOboarding', true);
+            });
+
+            $("#closeUserPlan").on('click', function () {
+                stopVideo();
+            });
+
+            $('.fdz-trails-krs').hide();
+            $('#main_content').css('max-height', $("right_menu").height());
+            $('.fdz-profile-trail-group-tasks').hide();
+            $('.trail-open-btn').removeClass('opened');
+            $('.trail-open-btn').addClass('closed');
+
+            getAllRows().hide();
+            getRows(completed, false).show();
+
+            closeModal.on('click', function (e) {
+                closeModals();
+            });
+
+            $('#menu_trail_status_active').on('click', function (e) {
+                const btn = $('#menu_trail_status_active');
+                const otherBtn = $('#menu_trail_status_completed');
+                const expired = $('#menu_trail_status_expired');
+                if (!(btn.hasClass("active"))) {
+                    btn.addClass("active");
+                    otherBtn.removeClass("active");
+                    expired.removeClass("active");
+                }
+                completed = false;
+                getAllRows().hide();
+                getRows(completed, false).show();
+                $('#opened_trail').html("");
+                $('#opened_trail_modal').html("");
+                $("#modals").html("");
+
+                $('#opened_trail').hide();
+                $('#opened_trail_modal').hide();
+                $('#trails_list').show();
+
+                $('#clear-fdz-filter-employees').trigger('click');
+            });
+
+            $('#menu_trail_status_completed').on('click', function (e) {
+                const btn = $('#menu_trail_status_completed');
+                const otherBtn = $('#menu_trail_status_active');
+                const expired = $('#menu_trail_status_expired');
+                if (!(btn.hasClass("active"))) {
+                    btn.addClass("active");
+                    otherBtn.removeClass("active");
+                    expired.removeClass("active");
+                }
+                completed = true;
+                getAllRows().hide();
+                getRows(completed, false).show();
+                $('#opened_trail').html("");
+                $('#opened_trail_modal').html("");
+                $("#modals").html("");
+
+                $('#opened_trail').hide();
+                $('#opened_trail_modal').hide();
+                $('#trails_list').show();
+
+                $('#clear-fdz-filter-employees').trigger('click');
+            });
+
+            $('#menu_trail_status_expired').on('click', function (e) {
+                const finished = $('#menu_trail_status_completed');
+                const active = $('#menu_trail_status_active');
+                const expired = $('#menu_trail_status_expired');
+
+                active.removeClass("active");
+                finished.removeClass("active");
+                expired.addClass("active");
+
+                completed = true;
+                getAllRows().hide();
+                getRows(completed, true).show();
+                $('#opened_trail').html("");
+                $('#opened_trail_modal').html("");
+                $("#modals").html("");
+
+                $('#opened_trail').hide();
+                $('#opened_trail_modal').hide();
+                $('#trails_list').show();
+
+                $('#clear-fdz-filter-employees').trigger('click');
+            });
+
+            $('body').on('click', '.trail-back-btn', function (e) {
+                $('#opened_trail').html("");
+                $('#opened_trail_modal').html("");
+                $("#modals").html("");
+
+                $('#opened_trail').hide();
+                $('#opened_trail_modal').hide();
+                $('#trails_list').show();
+            });
+
+            $('.trail-row').on('click', function (e) {
+
+                const id = $(this).data("id");
+                trail = new Trail(id);
+
+                $('#opened_trail').html('');
+            });
+
+            $('.fdz-profile-group-task').on('click', function (e) {
+                $('#tasks_modal').show();
+            });
+
+            $('.fdz-btn-okr').on('click', function (e) {
+                const okr = $(this).data('okr');
+                const groupOkr = $(`.fdz-trails-krs[data-okr="${okr}"]`)
+                if ($(this).hasClass('opened')) {
+                    groupOkr.hide();
+                } else {
+                    groupOkr.show();
+                }
+                $(this).toggleClass('opened');
+                $(this).toggleClass('closed');
+            });
+
+            $('.see-profile').on('click', function (e) {
+                e.preventDefault();
+                const employeeId = $(this).data('employee');
+                window.open(`/colaboradores/${employeeId}/perfil`, '_blank')
+            });
+
+            $('body').on('click', '.trail-open-btn', function (e) {
+                const group = $(this).data('group');
+                const groupTasks = $(`.fdz-profile-trail-group-tasks[data-group="${group}"]`)
+                if ($(this).hasClass('opened')) {
+                    groupTasks.hide();
+                } else {
+                    groupTasks.show();
+                }
+                $(this).toggleClass('opened');
+                $(this).toggleClass('closed');
+            });
+
+            $('body').on('click', '.fdz-modal-actions a.back-btn', function (e) {
+                closeModals();
+                $('#tasks_modal').hide();
+            })
+
+            $('body').on('click', '.fdz-profile-group-task', function (e) {
+                const taskId = $(this).data("task");
+                const groupId = $(this).data("group");
+                trail.mountSingleTask(taskId, groupId);
+            });
+
+            $('body').on('click', function (e) {
+                if ($(e.target).is('.fdz-new-modal')) {
+                    closeModals();
+                }
+            });
+
+            $('body').on('keyup change', '.task-status', function (e) {
+                const taskId = $(this).data("task");
+                let percentValue = $(this).val();
+                let maxValue = 100;
+
+                if (percentValue == "") {
+                    percentValue = 0;
+                } else if (percentValue > maxValue) {
+                    percentValue = maxValue;
+                    e.target.value = percentValue;
+                }
+
+                $(`.fdz-progress[data-task="${taskId}"]`).css('width', `${percentValue}%`);
+            });
+
+
+            $('body').on('click', '.fdz-modal-close', function (e) {
+                closeModals();
+            });
+
+            $('body').on('submit', '.fdz-form-task', function (e) {
+                e.preventDefault();
+                const taskId = $(this).data("task");
+                const groupId = $(this).data("group");
+                const trailId = $(this).data("trail");
+
+                const formData = $(this).serializeArray();
+                const url = `/trilhas/232683/trilha/${trailId}/grupos/${groupId}/tarefas/${taskId}`;
+
+                $(`tasks_modal_${taskId}`).fadeOut(500);
+                $.blockUI();
+                sendTaskUpdate(url, formData, groupId, trailId);
+            });
+
+            $('body').on('click', '.delete-trail.delete-btn', function (e) {
+                askConfirmation();
+            });
+
+            $('body').on('click', '.finish-trail-btn', function (e) {
+                swal({
+                    title: "Finalizar",
+                    text: "Você tem certeza disso?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Finalizar",
+                    cancelButtonText: "Cancelar",
+                    closeOnConfirm: true
+                }, function (isConfirm) {
+                    if (!isConfirm) {
+                        return;
+                    }
+
+                    trail.sendFinishTrail().then((res) => {
+                        if (res.success) {
+                            swal({
+                                type: 'success',
+                                title: "Opa!",
+                                text: "Finalizado com sucesso!"
+                            }, function () {
+                                location.reload();
+                            });
+                        } else {
+                            swal({
+                                type: 'error',
+                                title: "Opa!",
+                                text: res.message
+                            });
+                        }
+                    });
+                });
+
+            });
+
+            loadTask();
+
+        });
+
+        closeModals();
+
+        async function sendTaskUpdate(url, data, groupId, trailId) {
+            function onSuccess() {
+                swal({
+                    type: 'success',
+                    title: "Opa!",
+                    text: "Salvo com sucesso!"
+                }, function () {
+                    if (Number(data[0].value) < 100) {
+                        localStorage.setItem('taskOpened-groupId', groupId);
+                        localStorage.setItem('taskOpened-trailId', trailId);
+                    }
+                    location.reload();
+                }
+                );
+            }
+
+            function onError(message) {
+                swal({
+                    type: 'error',
+                    title: "Opa!",
+                    text: message
+                });
+            }
+
+            $.post(url, data).done((res) => {
+                if (res.success) {
+                    onSuccess();
+                } else {
+                    onError(res.message);
+                }
+            }).fail((res) => {
+                onError(res.responseJSON.message);
+            }).always($.unblockUI);
+        }
+
+        function askConfirmation(trailDel, group) {
+
+            swal({
+                title: "Deletar",
+                text: "Você tem certeza disso?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Deletar",
+                cancelButtonText: "Cancelar",
+                closeOnConfirm: true
+            }, function (isConfirm) {
+                if (!isConfirm) {
+                    return;
+                }
+
+                const url = (window.location.pathname).split("/editar")[0];
+                $.ajax({
+                    url: `${url}`,
+                    type: 'DELETE'
+                }).then((res) => {
+                    if (!res.success) {
+                        swal({
+                            type: 'error',
+                            title: `Opa!`,
+                            text: `Algo de errado não está certo!`
+                        });
+                    } else {
+                        window.location.href = "/trilhas"
+                    }
+                });
+                return;
+            });
+        }
+
+        class Trail {
+
+            constructor(id) {
+                this.id = id;
+                this.trail = null
+                this.initEvents();
+            }
+
+            initEvents() {
+                const _this = this;
+                $.blockUI();
+
+                function onSuccess(result) {
+                    if (result.success && result.trail) {
+                        const trail = result.trail;
+                        _this.trail = trail;
+                        $('#opened_trail').append(_this.mount(trail));
+                        $('#opened_trail_modal').append(_this.mount(trail));
+
+                        const individualTrailInfo = $('.fdz-people-trail-info');
+                        $('.fdz-profile-trail-group-tasks').hide();
+                        $('.trail-open-btn').removeClass('opened');
+                        $('.trail-open-btn').addClass('closed');
+
+                        $('#trails_list').hide();
+                        $('#opened_trail').show();
+                        $('#opened_trail_modal').show();
+
+                        let groupId = Number(localStorage.getItem('taskOpened-groupId'));
+                        if (groupId != 0) {
+                            $(`button[data-group=${groupId}]`).trigger("click");
+                            localStorage.removeItem('taskOpened-groupId');
+                            localStorage.removeItem('taskOpened-trailId');
+                            $.unblockUI();
+                        }
+                        $.unblockUI();
+                    }
+                    else {
+                        onError();
+                    }
+                }
+
+                function onError() {
+                    $.unblockUI();
+                    swal({
+                        type: 'error',
+                        title: "Opa!",
+                        text: "Não foi possível realizar a operação. Por favor, tente novamente."
+                    })
+                }
+
+                _this.getTrailDetails(_this.id, onSuccess, onError);
+            }
+
+            mount(trail) {
+                const _this = this;
+                return `${_this.mountCloneButton(trail)}
+<div class="fdz-people-trail-info ${_this.pickTrailClass()}">
+    <div class="fdz-people-trail-header ${_this.pickTrailClass()}">
+        ${_this.mountBackButton(trail)}
+        ${_this.mountTrailPhoto(trail)}
+        <div class="fdz-people-trail-header-info ${_this.pickTrailClass()} ${_this.employeeTrailClass(trail)}">
+            <div class="top-info">
+                <div class="trail-info">
+                    ${_this.mountTitle(trail)}
+                    ${_this.mountType(trail)}
+                    ${_this.mountJobDepartmentInfo(trail)}
+                </div>
+                ${_this.mountManagerInfo(trail)}
+            </div>
+            <div class="trail-data">
+                <p class="fdz-paragraph">
+                    ${_this.mountDtStart(trail)}
+                </p>
+                ${_this.mountDtFinish(trail)}
+            </div>
+            <div class="fdz-progress-bar-wrapper">
+                ${_this.mountMainProgressBar(trail)}
+            </div>
+        </div>
+        ${_this.mountEditOrDeleteBtn(trail)}
+    </div>
+    <div class="fdz-profile-trail-groups-tasks">
+        ${_this.mountGroups(trail.groups, trail)}
+    </div>
+    ${_this.mountFinishButton(trail)}
+    
+</div>`;
+            }
+
+            mountManagerInfo(trail) {
+                if (trail.profile.direct_manager != null && trail.profile.direct_manager != "undefined" && location.pathname.indexOf("/trilhas/gestao") > -1) {
+                    return `<div class="manager-info">
+                    <img src="${trail.profile.direct_manager.photo}" class="fdz-m-right-8" />
+                    <p class="fdz-paragraph fdz-m-0">
+                        ${trail.profile.direct_manager.name}
+                    </p>
+                </div>`;
+                }
+                return "";
+            }
+
+            mountTrailPhoto(trail) {
+
+                let photoClass = "fdz-trail-header-photo";
+                if (location.pathname.indexOf("/trilhas/gestao") > -1) {
+                    return `<img class="${photoClass}" src="${trail.profile.photo}">`;
+                }
+
+                let picture = "";
+                return `<img class="fdz-trail-header-photo employee" src="${picture}">`;
+            }
+
+            mountEditOrDeleteBtn(trail) {
+                if (!this.pickTrail) {
+                    if (!trail.is_finished && trail.status != 100 && trail.type == "1") {
+                        return `
+                        <a href="/trilhas/232683/trilha/${trail.id}/editar/${trail.type}" class="fdz-people-trail-btn right trail-edit-btn">
+                            <img src="/assets/images/trails/edit.svg" width="24" height="24"/>
+                        </a>
+                    `;
+                    }
+                }
+                return ``;
+            }
+
+            mountDtStart(trail) {
+                if (!this.pickTrail) {
+                    return `Inicio em ${moment(trail.dt_start).format("DD/MM/YY")}`;
+                }
+                return "";
+            }
+
+            mountDtFinish(trail) {
+                if (!this.pickTrail) {
+                    if (trail.type == 2 && location.pathname == "/trilhas") {
+                        return "";
+                    }
+                    return `
+                    <p class="fdz-paragraph">
+                        Previsto ${moment(trail.dt_finish).format("DD/MM/YY")}
+                    </p>
+                    `;
+                }
+                return "";
+            }
+
+            mountMainProgressBar(trail) {
+                if (!this.pickTrail) {
+                    let progressClass = '';
+                    if (trail.status <= 30) {
+                        progressClass = 'danger';
+                    }
+                    else if (trail.status > 30 && trail.status <= 60) {
+                        progressClass = 'warning';
+                    } else {
+                        progressClass = 'good';
+                    }
+
+                    return `
+                        <div class="fdz-progress-bar">
+                            <div class="fdz-progress ${progressClass}" style="width: ${trail.status}%;"></div>
+                        </div>
+                        <div class="fdz-progress-bar-info">
+                            <p class="fdz-paragraph ${progressClass} bold">
+                                ${trail.status}%
+                            </p>
+                            <p class="fdz-paragraph">
+                                <b class="${progressClass}">
+                                    ${trail.task_number.done}
+                                </b>&nbsp;
+                                de ${trail.task_number.total} tarefas                            </p>
+                        </div>`;
+                }
+                return "";
+            }
+
+            employeeTrailClass(trail) {
+                if (!trail.is_finished && trail.status != 100) {
+                    return "employee-trail";
+                }
+                return "employee-trail-finished";
+            }
+
+            pickTrailClass() {
+                if (this.pickTrail) {
+                    return "modal-pick-trail";
+                }
+                return "";
+            }
+
+            mountBackButton(trail) {
+                if (!this.pickTrail) {
+                    return ` <button class="fdz-people-trail-btn left trail-back-btn">
+                            <img src="/assets/images/trails/back.svg" width="24" height="24"/>
+                        </button>`;
+                }
+                return "";
+            }
+
+            mountTitle(trail) {
+                if (trail.type == 1) {
+                    return `
+                <h3 class="fdz-title">
+                    ${trail.name}
+                </h3>
+                `;
+                }
+                if (trail.type == 2 && location.pathname == "/trilhas") {
+                    return `
+                <h3 class="fdz-title">
+                    Onboarding de ${trail.profile.name}
+                </h3>
+                `;
+                }
+                return `
+            <h3 class="fdz-title">
+                ${trail.profile.name}
+            </h3>
+            `;
+            }
+
+            mountType(trail) {
+                if (trail.type == 1) {
+                    return `
+                <p class="fdz-paragraph fdz-m-0">
+                    ${trail.pdi_type.title}
+                </p>
+                `;
+                }
+                return "";
+            }
+
+            mountJobDepartmentInfo(trail) {
+                if (trail.profileInfo[0].job != null && trail.profileInfo[0].job != "undefined") {
+                    return ` <p class="fdz-paragraph fdz-m-bottom-0">
+                        ${trail.profileInfo[0].job.title}
+                        <p class="fdz-paragraph">
+                            ${trail.profileInfo[0].department.name}
+                        </p>
+                    </p>`;
+                }
+
+                return "";
+            }
+
+            mountFinishButton(trail) {
+                return "";
+            }
+
+            mountCloneButton(trail) {
+                return "";
+            }
+
+            mountGroups(groups, trail) {
+                const _this = this;
+                let groupHTML = '';
+                groups.forEach(group => {
+                    groupHTML += `<div class="fdz-profile-trail-group">
+    <div class="fdz-profile-trail-group-header fdz-trail-withouth-progress">
+        <div class="trail-group-info">
+            <h3 class="fdz-title">
+                ${group.name}
+            </h3>
+            <p class="fdz-paragraph">
+                ${group.description}
+            </p>
+            ${_this.mountGroupProgressBar(group)}
+        </div>
+        <button class="fdz-people-trail-btn trail-open-btn opened" data-group="${group.id}">
+            <img src="/assets/images/trails/back.svg" width="24" height="24"/>
+        </button>
+    </div>
+    <div class="fdz-profile-trail-group-tasks" data-group="${group.id}">
+        ${_this.mountTasks(group.tasks, group, trail)}
+    </div>
+</div>`
+                });
+                return groupHTML;
+            }
+
+            mountGroupProgressBar(group) {
+                if (!this.pickTrail) {
+                    return `
+                <div class="fdz-progress-bar-wrapper">
+                    <div class="fdz-progress-bar">
+                        <div class="fdz-progress" style="width: ${group.status}%;"></div>
+                    </div>
+                    <div class="fdz-progress-bar-info">
+                        <p class="fdz-paragraph bold blue">
+                            ${group.status}%
+                        </p>
+                        <p class="fdz-paragraph">
+                            <b class="blue">
+                                ${group.task_number.done}
+                            </b>&nbsp;
+                            de ${group.task_number.total} tarefas                        </p>
+                    </div>
+                </div>`;
+                }
+                return "";
+            }
+
+            mountTasks(tasks, group, trail) {
+                const _this = this;
+                let taskHTML = '';
+                tasks.forEach(task => {
+                    taskHTML += `<div class="fdz-profile-group-task fdz-m-bottom-8  ${task.status == 100 && !this.pickTrail ? 'completed' : ''}" data-task="${task.id}" data-group="${group.id}">
+    <div class="fdz-task-step fdz-m-right-8">
+        <p class="fdz-paragraph ${task.status == 100 && !this.pickTrail ? 'good' : 'blue'} fdz-m-0">
+            ${_this.mountTaskStep(task.step)}
+        </p>
+    </div>
+    <div class="fdz-task-information">
+        <h5 class="fdz-title ${task.status == 100 && !this.pickTrail ? 'stroked ' : ''} fdz-m-0 fdz-full fdz-break-word">
+            ${task.name}
+        </h5>
+        <p class="fdz-paragraph ${task.status == 100 && !this.pickTrail ? 'good' : 'fdz-d-none'} fdz-m-right-8 fdz-m-bottom-0">
+            ${moment(task.updated_at).format('DD/MM/YY HH:mm')}
+        </p>
+        ${!this.pickTrail ? _this.mountTaskImage(task) : _this.mountTaskIcon(task.type)}        
+    </div>
+</div>`;
+                });
+                return taskHTML;
+            }
+
+            mountSingleTask(taskID, groupID) {
+                const _this = this;
+                const group = (_this.trail.groups).find((group) => group.id == groupID);
+                const task = (group.tasks).find((task) => task.id == taskID);
+
+                _this.mountTaskModal(task, group);
+            }
+
+
+            mountTaskImage(task) {
+
+                let isCompleted = task.status == 100 ? "good" : "blue";
+                if (task.status == 100) {
+                    return `<div class="fdz-circular-progress-container">
+                        <div class="fdz-circular-progress-wrapper">
+                            <div class="fdz-circular-progress-box">
+                                <div class="fdz-flex-row bottom-info trail-info">
+                                    <img src="/assets/images/trails/task_completed.svg" />
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>`;
+                } else {
+                    return `<div class="fdz-circular-progress-container">
+                        <div class="fdz-circular-progress-wrapper">
+                            <div class="fdz-circular-progress-box">
+                                <div class="fdz-circular-progress-percent">
+                                    <svg>
+                                        <circle cx="18" cy="18" r="18"></circle>
+                                        <circle cx="18" cy="18" r="18" stroke-dasharray="${task.status * 114 / 100}, 114"></circle>
+                                    </svg>
+                                </div>
+
+                                <div class="fdz-circular-progress-number">
+                                    <p class="fdz-paragraph">
+                                        ${task.status}%
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                }
+
+            }
+
+            mountTaskIcon(taskType) {
+                return `<img class="trail-progress fdz-m-right-8" src="/assets/images/trails/groups/type_${taskType}.svg" /> `
+            }
+
+            mountTaskModal(task, group) {
+                const _this = this;
+                const trail = this.trail;
+                $("#modals").append(`<div class="fdz-new-modal" id="tasks_modal_${task.id}">
+    <div class="fdz-modal-content fdz-trail-info-modal custom-scrollbar" style="width: 1000px;">
+        <div class="fdz-modal-header">
+            <div class="fdz-flex-align-center">
+                <div class="fdz-step fdz-m-right-8">
+                    <p class="fdz-paragraph blue fdz-m-0">
+                        ${_this.mountTaskStep(task.step)}
+                    </p>
+                </div>
+                <h3 class="fdz-title fdz-m-0">
+                    ${task.name}
+                </h3>
+            </div>
+            <span class="fdz-modal-close">&#x2715;</span>
+        </div>
+        <form data-task="${task.id}" data-group="${group.id}" data-trail="${trail.id}" class="fdz-form-task fdz-w-100-percent">
+            <div class="fdz-modal-body">
+                <div class="fdz-modal-body-content">
+                    <div class="fdz-modal-body-content fdz-m-top-20">
+                        ${_this.mountTaskDescription(task)}
+                        <div class="fdz-progress-bar-wrapper fdz-m-top-20">
+                            ${_this.mountTaskProgressType(task, trail)}
+                        </div>
+                        
+                        <div class="fdz-trail-learning-skills">
+                            <h5 class="fdz-title">
+                                Conte seus maiores aprendizados                            </h5>
+                            ${_this.mountTaskLearningLabel(task, trail)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fdz-modal-actions fdz-flex-row fdz-m-top-20">
+                <div>
+                    <a class="fdz-btn back-btn">
+                        Voltar                    </a>
+                </div>
+                <div>
+                    ${_this.mountTaskSaveButton(task, trail)}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>`);
+                const modal = $(`#tasks_modal_${task.id}`);
+
+                modal.find("textarea").summernote({
+                    lang: `pt-BR`,
+                    tooltip: false,
+                    height: 120,
+                    disableResizeEditor: false,
+                    toolbar: [
+                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                        ['font', ['strikethrough', 'superscript', 'subscript']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['height', ['height']]
+                    ],
+                    placeholder: "Aprendizados",
+                    callbacks: {
+                        onPaste: function (e) {
+                            const bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                            e.preventDefault();
+                            document.execCommand('insertText', false, bufferText);
+                        },
+                    }
+                });
+
+                modal.show();
+            }
+
+            mountTaskDescription(task) {
+                if (task.description.length > 0) {
+                    return `<div class="fdz-trail-description-box custom-scrollbar fdz-m-top-20">
+                        ${task.description}
+                    </div>`;
+                }
+                return ``;
+            }
+
+            mountTaskProgressType(task, trail) {
+
+                let disabledLabel = trail.status == 100 || trail.is_finished ? 'disabled' : '';
+
+                if (task.type == 1) {
+                    return `<h5 class="fdz-title">
+                            Progresso                        </h5>
+                        <div class="fdz-flex-row fdz-m-bottom-8 fdz-flex-align-center">
+                            <select name="status" ${disabledLabel} data-task="${task.id}" data-group="${task.id_group}" class="fdz-select fdz-select-medium task-type">
+                                <option value="0" ${task.status == 0 ? "selected" : ""}>Não concluído</option>
+                                <option value="100" ${task.status == 100 ? "selected" : ""}>Concluído</option>
+                            </select>
+                        </div>`;
+                } else {
+                    return `<h5 class="fdz-title">
+                            Progresso                        </h5>
+                        <div class="fdz-flex-row fdz-m-bottom-8 fdz-flex-align-center">
+                            <input name="status" ${disabledLabel} type="number" step="1" min="0" max="100" maxlength="3" data-task="${task.id}" value="${task.status}" class="fdz-input task-status"/><h5 class="fdz-title fdz-m-0 fdz-m-left-8">%</h5>
+                        </div>
+                        <div class="fdz-progress-bar">
+                            <div data-task="${task.id}" class="fdz-progress blue" style="width: ${task.status}%;"></div>
+                        </div>`;
+                }
+
+            }
+
+            mountTaskLearningLabel(task, trail) {
+
+                let disabledLabel = trail.status == 100 || trail.is_finished ? 'disabled' : '';
+                return `<textarea name="learning" ${disabledLabel} class="fdz-input fdz-textarea fdz-height-150">${task.learning ?? ''}</textarea> `;
+
+            }
+
+            mountTaskSaveButton(task, trail) {
+
+                if (trail.status != 100 && !trail.is_finished) {
+                    return `<button class="fdz-btn fdz-btn-primary">
+                            ${task.type == 1 ? 'Salvar' : 'Atualizar Progresso'}
+                        </button>`
+                }
+                return ``;
+
+            }
+
+            mountTaskStep(step) {
+                const stepCorrect = step + 1;
+                let stepLabel = `${stepCorrect}`;
+                if (step < 10) {
+                    stepLabel = `0${stepCorrect}`;
+                }
+                return stepLabel;
+            }
+
+            async getTrailDetails(trailID, onSuccess, onError) {
+                return $.get(`/trilhas/232683/trilha/${trailID}`)
+                    .done((result) => {
+                        onSuccess(result);
+                    })
+                    .fail(onError);
+            }
+
+            async sendFinishTrail() {
+                return $.post(`/trilhas/232683/trilha/${this.id}/finalizar`);
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        var host = window.location.hostname;
+        if (true || host != 'feedz.local' && host != 'localhost' && host != '127.0.0.1') {
+
+            function initItercom() {
+
+                window.intercomSettings = {
+                    "api_base": "https://api-iam.intercom.io",
+                    "app_id": "vfnkkwu1",
+                    "user_hash": "12f22ba83bb48baa2e82f73414d4ea8341d4a484660153725588255e2ef0bc4b",
+                    "user_id": "232683",
+                    "name": "Murillo Stein",
+                    "email": "murillo.stein@bixtecnologia.com.br",
+                    "Papel": "Colaborador",
+                    "Status": null,
+                    "Data de Desligamento": null,
+                    "Idioma do Usuário": "Português",
+                    "Data Último Login": Number("1667234170"),
+                    "Data de Criação": Number("1640179304"),
+                    "Data de Admissão": Number("1656903600"),
+                    "Descrição do Cargo": "",
+                    "Departamento do Colaborador": "Data Science",
+                    "company": {
+                        "id": Number("838"),
+                        "name": "Bix Tecnologia",
+                        "created_at": Number("1605033440"),
+                        "Curva": "B",
+                        "Idioma da Base": "Português",
+                        "Cliente Pagante": "true",
+                        "Etapa": "Ongoing",
+                        "Módulo Objetivos": "true",
+                        "Módulo Avaliação de Desempenho": "true",
+                        "Módulo Pesquisa de Engajamento": "true",
+                        "Módulo eNPS": "true",
+                        "Módulo Pesquisa Rápida": "true",
+                        "Módulo Super Pesquisa": "true",
+                        "Módulo Humor": "true",
+                        "Módulo Celebração": "true",
+                        "Módulo Feedback": "true",
+                        "Módulo Planos de Desenvolvimento": "true",
+                        "Módulo 1on1": "true",
+                        "Módulo Gamificação": "true",
+                        "Módulo Meritmoney": "false",
+                        "Módulo Ouvidoria": "true",
+                        "Módulo Comunicados": "true",
+                        "Módulo Departamento Pessoal": "false"
+                    }
+                };
+
+                var w = window;
+                var ic = w.Intercom;
+                if (typeof ic === "function") {
+                    ic('reattach_activator');
+                    ic('update', w.intercomSettings);
+                } else {
+                    var d = document;
+                    var i = function () {
+                        i.c(arguments);
+                    };
+                    i.q = [];
+                    i.c = function (args) {
+                        i.q.push(args);
+                    };
+                    w.Intercom = i;
+                    var l = function () {
+                        var s = d.createElement('script');
+                        s.type = 'text/javascript';
+                        s.async = true;
+                        s.src = 'https://widget.intercom.io/widget/vfnkkwu1';
+                        var x = d.getElementsByTagName('script')[0];
+                        x.parentNode.insertBefore(s, x);
+                    };
+                    l();
+                }
+            }
+
+            initItercom();
+        }
+
+        function init() {
+            gapi.load('auth2', function () {
+                auth2 = gapi.auth2.init({
+                    client_id: '372805969773-lf05m73li9b08sr6aq8f6c74mm1sop9b.apps.googleusercontent.com',
+                });
+            });
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () { });
+        }
+
+        setTimeout(function () {
+            init();
+        }, 230);
+    </script>
+    </script>
+    <script>
+        // Setting localStorage
+        function initLocalStorage() {
+            localStorage.setItem('sys_profile_id', "232683");
+        }
+
+        initLocalStorage();
+    </script>
+    <script>
+        var decodeString = (function () {
+            var doc = document.implementation.createHTMLDocument("");
+            var element = doc.createElement('div');
+
+            function getText(str) {
+
+                if (!str)
+                    return null
+
+                element.innerHTML = str;
+                str = element.textContent;
+                element.textContent = '';
+                return str;
+            }
+
+            function decodeHTMLString(str) {
+                if (!str)
+                    return null
+
+                if (str && typeof str === 'string') {
+                    var x = getText(str);
+                    while (str !== x) {
+                        str = x;
+                        x = getText(x);
+                    }
+                    return x;
+                }
+            }
+            return decodeHTMLString;
+        })();
+    </script>
+    <script>
+        document.querySelectorAll(".fdz-list-item-sort").forEach((el) => {
+            el.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                document.querySelectorAll(".fdz-list-item-sort").forEach((element) => {
+                    element.parentElement.classList.remove("active");
+                })
+                e.currentTarget.parentElement.classList.add("active");
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+
+            const language = 'pt_BR';
+
+            switch (language) {
+                case 'es_ES':
+                    var lg = 'es';
+                    break;
+                case 'pt_BR':
+                    var lg = 'pt-BR';
+                    break;
+                case 'en_US':
+                    var lg = 'en-US';
+                    break;
+                default:
+                    var lg = 'pt-BR';
+                    break;
+            }
+
+            $.datepicker.setDefaults($.datepicker.regional[lg]);
+        });
+    </script>
+</body>
+<link rel="stylesheet" media="print" href="/assets/css/print.css?ts=1663969161">
+
+</html>
