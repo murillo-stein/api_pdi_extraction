@@ -12,10 +12,8 @@ from functions import updatePage
 with requests.session() as s:
 
     # FEEDZs setup
-    login_info = {
-        'login_email': 'murillo.stein@bixtecnologia.com.br',
-        'login_password': 'Murillo8'
-    }
+    credentials = open('credentials.json')
+    login_info = json.load(credentials)
     login_url = 'https://app.feedz.com.br/autenticacao/login'
     s.post(login_url, data=login_info)
 
