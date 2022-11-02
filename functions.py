@@ -6,35 +6,50 @@ import requests
 import pandas as pd
 
 def getProgress(all_divs):
+    """
+    Get the progress of PDI. 
+    Args:
+        all_divs: beautifulsoup object with the content of divs of the PDI
+    Returns:
+        A string with the percentage of progress of the PDI
+    """
     textos = []
     for child in all_divs.children:
-        # print(child.text)
         if child.text != "\n":
             textos.append(child.text.replace("\n", ""))
 
-    progress = re.findall('[0-9]%', textos[-1])
-    print('pegou progresso', progress)
+    progress = re.findall('[0-9]%', textos[-1]) # o progresso esta localizado no ultimo item de cada div
     return progress[0]
 
 def getPageID(data, name_feedz):
-    for line in data:
-        # print(line)
-        page_id = line['id']
+    """
+    Capture the ID of the line that contains the name of collaborator
+    Args:
+        data: full content of table
+        name_feedz: name of collaborator
+    Returns:
+        The ID of the line that contains the name of collaborator
+    """
 
+    for line in data:
+        page_id = line['id']
         for campo in line['properties']:
-            # print(campo)
             format = line['properties'][campo]['type']
             if campo == 'Nome':
                 name_notion = line['properties'][campo][format][0]['text']['content']
                 if name_notion == name_feedz:
-                    # print('igual')
-                    print('pegou id')
                     return page_id
 
 def updatePage(page_id, headers, text):
+    """
+    Update the value of a row. It gets the page ID and susbtitute the current value of a specific column.
+    Args:
+        page_id: id of the line of the table
+        headers: inputs for PATCH request 
+        text: new value        
+    """
     updateUrl = f"https://api.notion.com/v1/pages/{page_id}"
-
-    updateData = {
+    update_data = {
         "properties": {
             "testando": {
                 "type": "rich_text",
@@ -48,9 +63,6 @@ def updatePage(page_id, headers, text):
             }
         }
     }
-
-    data = json.dumps(updateData)
-
+    data = json.dumps(update_data)
     response = requests.patch(updateUrl, headers=headers, data=data)
-
     print(response.status_code)
